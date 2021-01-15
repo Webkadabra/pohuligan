@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+
+  <meta charset="UTF-8">
+  
+<link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+<meta name="apple-mobile-web-app-title" content="CodePen">
+
+<link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+<link rel="mask-icon" type="" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111" />
+
+
+  <title>Pohuligan - Hardcore Rust Server</title>
+  <link href='https://fonts.googleapis.com/css?family=Permanent+Marker' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+  
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+html {
+    height: 100%;
+    overflow: hidden;
+}
+body{
+  background:url(https://unsplash.imgix.net/reserve/NxxLccbqQdGtNc7xJ43e_ancestral-home.jpg?q=75&fm=jpg&s=f20accdc67997ab19731ec0faa5ea1e7) no-repeat center center fixed transparent;
+  background-size:cover;
+  font-family: 'Permanent Marker', cursive;
+}
+canvas {
+    z-index: 1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+.container {
+    z-index: 3;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+.container div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    min-width: 500px;
+    height: 100px;
+    margin: auto;
+    font-size: 40px;
+    text-align: center;
+    color: rgba(103, 223, 136, 0.51);
+}
+.container a {
+    text-decoration: none;
+    color: white;
+    font-size:12px;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+  <script>
+  if (document.location.search.match(/type=embed/gi)) {
+    window.parent.postMessage("resize", "*");
+  }
+</script>
+
+
+</head>
+
+<body translate="no" >
+  <div class="container">
+    <div>Mainteance Mode mosquito infestation
+        <br /> <a href="#">Log out of Isla Mosquito</a>
+    </div>
+</div>
+<canvas id="canvas"></canvas>
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+
+  
+      <script id="rendered-js" >
+var mosquitos = function () {
+  var canvas,element,imgData,px,w,h,flickInt,
+  flicker = function () {
+    canvas = document.getElementById('canvas');
+    element = canvas.getContext('2d');
+    canvas.width = w = 700;
+    canvas.height = h = 500;
+    element.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    element.fillRect(0, 0, w, h);
+    element.fill();
+    imgData = element.getImageData(0, 0, w, h);
+    px = imgData.data;
+    flickInt = setInterval(flicks, 30);
+    // redirect
+    handler();
+  },
+  flicks = function () {
+    for (var i = 0; i < px.length; i += 4) {
+      var col = Math.random() * 100 + 25;
+      px[i] = col;
+      px[i + 1] = col;
+      px[i + 2] = col;
+    }
+    element.putImageData(imgData, 0, 0);
+  },
+  handler = function () {
+    // open console and paste this on any website to see
+    // redirect to
+    var lnk = document.querySelector('.container a');
+    lnk.addEventListener('click', function (e) {
+      e.preventDefault();
+      console.log('reader');
+      redirect('http://exmple.com');
+    }, false);
+  };
+
+  return {
+    init: flicker };
+
+
+  // callback function for end progress funciton
+  function redirect(el) {
+    return progress(function () {
+      location.href = el;
+    });
+  }
+
+  // progress(callback)
+  function progress(_success) {
+    //  create two elements
+    var b = document.createElement('span'),
+    w = 0;
+
+    // counter style
+    b.className = 'bar';
+    b.style.position = 'fixed';
+    b.style.top = '0';
+    b.style.left = '0';
+    b.style.height = '0.1em';
+    b.style.display = 'block';
+    b.style.background = '#fff';
+    b.style.width = '0%';
+    b.style.zIndex = '99999999999999';
+
+    // append elements
+    document.body.appendChild(b);
+
+    // progress function
+    var t = setInterval(function () {
+      w = w + 1;
+      // show bar
+      b.style.width = w + '%';
+      // on finish
+      if (w === 100) {
+        clearInterval(t);
+        w = 0;
+        if (_success()) return _success();
+      }
+    }, 20);
+  }
+}();
+
+mosquitos.init();
+//# sourceURL=pen.js
+    </script>
+
+  
+
+</body>
+
+</html>
+ 
